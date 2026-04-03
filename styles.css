@@ -1,9 +1,20 @@
+/* --------------------------------------------------------------------------
+   Global reset
+   Removes default browser spacing so padding/margins are predictable.
+   box-sizing: border-box — width includes padding (easier card layouts).
+   -------------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* --------------------------------------------------------------------------
+   Page canvas
+   Inter first, then system UI fonts as fallback if Google Fonts fails.
+   #f7f7f4 = page background (warmer than pure gray).
+   Flex centers the card row vertically and horizontally in the viewport.
+   -------------------------------------------------------------------------- */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f7f7f4;
@@ -14,6 +25,10 @@ body {
     padding: 20px;
 }
 
+/* --------------------------------------------------------------------------
+   Card row
+   Horizontal flex with 24px gutters; cards stay on one row (nowrap) at this width.
+   -------------------------------------------------------------------------- */
 .cards-container {
     display: flex;
     flex-direction: row;
@@ -23,6 +38,12 @@ body {
     align-items: flex-start;
 }
 
+/* --------------------------------------------------------------------------
+   Single pricing card
+   Column flex so the button can sit at the bottom (margin-top: auto on button).
+   #f2f1ed = slightly darker than page — subtle elevation without a hard shadow.
+   320px × min 380px = fixed card footprint for consistent comparison.
+   -------------------------------------------------------------------------- */
 .card {
     display: flex;
     flex-direction: column;
@@ -34,11 +55,13 @@ body {
     flex-shrink: 0;
 }
 
+/* Stacks plan name → price → features; grows with content above the CTA. */
 .card-top {
     display: flex;
     flex-direction: column;
 }
 
+/* Plan name: 22/28 type scale, near-black #26251e, regular weight for a calm headline. */
 .card-title {
     font-size: 22px;
     line-height: 28px;
@@ -47,6 +70,7 @@ body {
     margin-bottom: 8px;
 }
 
+/* Price row: baseline-aligned so numbers and suffix line up cleanly. */
 .card-price {
     font-size: 20px;
     color: rgba(38, 37, 30, 0.5);
@@ -54,32 +78,38 @@ body {
     align-items: baseline;
 }
 
+/* Main price figure; same muted brown at 50% opacity as supporting text. */
 .card-price-amount {
     font-size: 22px;
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* “/mo.” etc. — smaller than amount for hierarchy. */
 .card-price-period {
     font-size: 14px;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* Space below features before the button (pushes visual breathing room). */
 .card-content {
     margin-bottom: 32px;
 }
 
+/* “Includes:” label — muted, sits between price and bullet list. */
 .includes-text {
     font-size: 16px;
     color: rgba(38, 37, 30, 0.5);
     margin: 16px 0px;
 }
 
+/* Custom bullets: native list markers removed; we use ✓ in the markup instead. */
 .features-list {
     list-style: none;
     padding: 0;
 }
 
+/* Each row: flex aligns checkmark + text on one line; 8px vertical rhythm. */
 .features-list li {
     display: flex;
     align-items: center;
@@ -88,6 +118,7 @@ body {
     color: #26251e;
 }
 
+/* Check glyph: slightly smaller than body, fixed right margin for alignment column. */
 .checkmark {
     color: #26251e;
     font-size: 14px;
@@ -95,6 +126,11 @@ body {
     font-weight: 400;
 }
 
+/* --------------------------------------------------------------------------
+   CTAs (shared)
+   Pill shape (999px radius), sits at card bottom via margin-top: auto.
+   Default fill #e6e5e0 — secondary / neutral action.
+   -------------------------------------------------------------------------- */
 .download-button {
     margin-top: auto;
     width: fit-content;
@@ -117,6 +153,7 @@ body {
     background-color: #D8D6CE;
 }
 
+/* Primary variant: high contrast for the paid plan (white text on #111). */
 .download-button.primary {
     background-color: #111;
     color: #fff;
@@ -130,6 +167,10 @@ body {
     background-color: #333;
 }
 
+/* --------------------------------------------------------------------------
+   Page label (HTML version badge)
+   Fixed to viewport top-center; white chip + soft shadow so it floats over content.
+   -------------------------------------------------------------------------- */
 .page-label {
     position: fixed;
     top: 16px;
