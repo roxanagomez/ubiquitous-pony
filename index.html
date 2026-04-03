@@ -1,17 +1,33 @@
 <!DOCTYPE html>
+<!-- Declares HTML5; required first line for browsers. -->
 <html lang="en">
+<!-- lang helps screen readers and search engines use the right voice/rules. -->
+
 <head>
+    <!-- Charset: ensures special characters render correctly. -->
     <meta charset="UTF-8">
+    <!-- Viewport: makes the page scale correctly on phones (no tiny desktop layout). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Browser tab / bookmark title. -->
     <title>Pricing Plans — HTML version</title>
+
+    <!-- Fonts: warm up the connection before CSS asks for Inter (slightly faster paint). -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Loads Inter at weights 400–700; matches body font stack in styles.css. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- All layout, color, and typography for this page live here. -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <!-- Fixed banner at top (see .page-label in CSS); not part of the pricing cards. -->
     <p class="page-label"><strong>HTML version</strong> — static markup</p>
+
+    <!-- Flex row: holds the two pricing cards side by side (wraps on small screens if CSS changes). -->
     <div class="cards-container">
+
+        <!-- Card 1: Hobby tier — title, price, feature list, then CTA pinned to bottom via flex. -->
         <div class="card">
             <div class="card-top">
                 <h3 class="card-title">Hobby</h3>
@@ -36,12 +52,16 @@
                     </ul>
                 </div>
             </div>
+            <!-- .secondary = light pill button; pairs with .download-button in CSS. -->
             <button class="download-button secondary">Download</button>
         </div>
+
+        <!-- Card 2: Pro tier — same structure as Hobby so CSS can reuse one card pattern. -->
         <div class="card">
             <div class="card-top">
                 <h3 class="card-title">Pro</h3>
                 <p class="card-price">
+                    <!-- Amount + period are separate spans so price and “/mo.” can be styled differently. -->
                     <span class="card-price-amount">$20</span>
                     <span class="card-price-period">/mo.</span>
                 </p>
@@ -67,7 +87,40 @@
                     </ul>
                 </div>
             </div>
+            <!-- .primary = dark filled pill; visual emphasis for the paid plan. -->
             <button class="download-button primary">Get Pro</button>
+        </div>
+
+        <!-- Card 3: Enterprise — same structure as Hobby/Pro; duplicate a .card block, then edit content. -->
+        <div class="card">
+            <div class="card-top">
+                <h3 class="card-title">Enterprise</h3>
+                <p class="card-price">
+                    <span class="card-price-amount">Custom</span>
+                </p>
+                <div class="card-content">
+                    <p class="includes-text">Everything in Pro, plus:</p>
+                    <ul class="features-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            SSO and advanced security
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Org-wide usage and billing
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Priority support and SLA
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Dedicated success manager
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="download-button secondary">Contact sales</button>
         </div>
     </div>
 </body>
