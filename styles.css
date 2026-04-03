@@ -167,6 +167,19 @@ body {
     background-color: #333;
 }
 
+.download-button.tertiary {
+    background-color: transparent;
+    border: 1px solid #c1bfb8;
+    color: #333;
+}
+
+.download-button.tertiary:hover {
+    background-color: #e6e5e0;
+}
+
+.download-button.tertiary:active {
+    background-color: #f2f1ed;
+}
 /* --------------------------------------------------------------------------
    Page label (HTML version badge)
    Fixed to viewport top-center; white chip + soft shadow so it floats over content.
